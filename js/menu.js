@@ -50,3 +50,38 @@ const observador = new IntersectionObserver(function (entradas) {
 blocos.forEach(function (bloco) {
   observador.observe(bloco);
 });
+
+
+/* ===================================================
+   Botão voltar ao topo
+=================================================== */
+const btnTopo = document.getElementById('btn-topo');
+
+window.addEventListener('scroll', function () {
+  if (btnTopo) btnTopo.classList.toggle('visivel', window.scrollY > 400);
+});
+
+if (btnTopo) {
+  btnTopo.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+
+/* ===================================================
+   Menu hamburguer (mobile)
+=================================================== */
+const btnHamburguer = document.getElementById('btn-hamburguer');
+const menuNav       = document.querySelector('.menu');
+
+if (btnHamburguer && menuNav) {
+  btnHamburguer.addEventListener('click', function () {
+    menuNav.classList.toggle('aberto');
+  });
+
+  menuNav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      menuNav.classList.remove('aberto');
+    });
+  });
+}

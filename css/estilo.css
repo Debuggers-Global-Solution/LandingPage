@@ -344,3 +344,72 @@ html {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* =========================================
+   BOTÃO VOLTAR AO TOPO
+========================================= */
+.btn-topo {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--laranja);
+  color: #1a0f06;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.3s, transform 0.3s, background 0.2s;
+  z-index: 100;
+}
+.btn-topo.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+.btn-topo:hover {
+  background: var(--laranja-claro);
+}
+
+/* =========================================
+   MENU HAMBURGUER (mobile)
+========================================= */
+.btn-hamburguer {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--texto);
+  font-size: 1.6rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px;
+}
+
+/* =========================================
+   RESPONSIVIDADE (telas pequenas / celular)
+========================================= */
+@media (max-width: 720px) {
+  .cabecalho { position: relative; }
+  .btn-hamburguer { display: block; }
+  .seletor-tema { display: none; }
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(11, 13, 18, 0.97);
+    padding: 20px 24px;
+    gap: 16px;
+    border-bottom: 1px solid var(--borda);
+    z-index: 20;
+  }
+  .menu.aberto { display: flex; }
+  .menu a { font-size: 1rem; }
+  .hero-texto h1 { font-size: 2rem; }
+  .secao-topo h2 { font-size: 1.5rem; }
+}
