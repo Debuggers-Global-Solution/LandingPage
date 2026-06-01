@@ -181,7 +181,7 @@ html {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background-color: #36D17A;            /* verde "online" */
+  background-color: #36D17A;
   box-shadow: 0 0 0 0 rgba(54, 209, 122, 0.6);
   animation: pulsar 1.8s infinite;
 }
@@ -189,4 +189,87 @@ html {
   0%   { box-shadow: 0 0 0 0 rgba(54, 209, 122, 0.6); }
   70%  { box-shadow: 0 0 0 10px rgba(54, 209, 122, 0); }
   100% { box-shadow: 0 0 0 0 rgba(54, 209, 122, 0); }
+}
+
+/* =========================================
+   SEÇÕES DE CONTEÚDO
+========================================= */
+.secao {
+  padding: 70px 0;
+  border-top: 1px solid var(--borda);
+}
+
+/* cabeçalho de cada seção (número + título) */
+.secao-topo {
+  display: flex;                 /* Flexbox */
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.secao-numero {
+  font-family: var(--fonte-titulo);
+  color: var(--azul);
+  font-size: 0.9rem;
+  border: 1px solid var(--borda);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+.secao-topo h2 {
+  font-size: 1.9rem;
+}
+
+/* conteúdo lado a lado: texto + imagem */
+.secao-conteudo {
+  display: flex;                 /* Flexbox */
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.secao-conteudo .texto {
+  flex: 1 1 360px;
+}
+.secao-conteudo .texto p {
+  color: var(--texto-suave);
+  margin-bottom: 14px;
+}
+.secao-conteudo .imagem {
+  flex: 0 1 240px;
+  text-align: center;
+}
+.secao-conteudo .imagem img {
+  width: 150px;
+  margin: 0 auto;
+}
+/* inverte a ordem nas seções pares (zigue-zague) */
+.secao:nth-child(even) .secao-conteudo {
+  flex-direction: row-reverse;
+}
+
+/* lista de itens dentro das seções (cards) */
+.cards {
+  display: flex;                 /* Flexbox */
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 10px;
+}
+.card {
+  flex: 1 1 200px;
+  background-color: var(--fundo-card);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 20px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.card:hover {
+  border-color: var(--laranja);
+  transform: translateY(-4px);
+}
+.card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: var(--texto);
+}
+.card p {
+  color: var(--texto-suave);
+  font-size: 0.92rem;
 }
