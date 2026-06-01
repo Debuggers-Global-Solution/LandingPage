@@ -277,7 +277,8 @@
         </div>
         <div class="campo-grupo">
           <label for="mensagem">Mensagem</label>
-          <textarea id="mensagem" name="mensagem" required placeholder="Sua mensagem..." rows="4"></textarea>
+          <textarea id="mensagem" name="mensagem" required placeholder="Sua mensagem..." rows="4" maxlength="500"></textarea>
+          <small id="contador-chars" style="color: var(--texto-suave); font-size: 0.78rem;">0 / 500 caracteres</small>
           <span class="msg-erro">Por favor, escreva sua mensagem.</span>
         </div>
         <button type="submit" class="botao">Enviar mensagem</button>

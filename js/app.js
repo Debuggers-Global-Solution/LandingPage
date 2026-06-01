@@ -356,3 +356,14 @@ function renderResultado() {
 }
 
 if (qBox) renderPergunta();
+
+/* ========== CONTADOR DE CARACTERES ========== */
+
+const textarea = document.getElementById('mensagem');
+const contador = document.getElementById('contador-chars');
+
+if (textarea && contador) {
+  textarea.addEventListener('input', function () {
+    contador.textContent = textarea.value.length + ' / 500 caracteres';
+  });
+}
