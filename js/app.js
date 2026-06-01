@@ -1,7 +1,164 @@
 /* ============================================================
    app.js — Web Development · OrbitAlert
-   Formulário | Quiz | Canvas | Tema | Slideshow
+   Watermark | Canvas | Tema | Slideshow | Formulário | Quiz
    ============================================================ */
+
+
+/* ========== WATERMARK RODAPÉ ========== */
+
+function ajustarWatermark() {
+  var rodape = document.querySelector('.rodape');
+  if (!rodape) return;
+  var temp = document.createElement('span');
+  temp.style.position    = 'absolute';
+  temp.style.visibility  = 'hidden';
+  temp.style.fontFamily  = 'Manrope, sans-serif';
+  temp.style.fontWeight  = '700';
+  temp.style.fontStyle   = 'italic';
+  temp.style.letterSpacing = '-0.045em';
+  temp.style.whiteSpace  = 'nowrap';
+  temp.style.fontSize    = '100px';
+  temp.textContent = 'OrbitAlert';
+  document.body.appendChild(temp);
+  var fontSize = (rodape.offsetWidth / temp.offsetWidth) * 100 * 0.97;
+  document.body.removeChild(temp);
+  var bottom = Math.max(0, (rodape.offsetHeight - fontSize) / 2) - 34;
+  document.documentElement.style.setProperty('--rodape-watermark-size', fontSize + 'px');
+  document.documentElement.style.setProperty('--rodape-watermark-bottom', bottom + 'px');
+}
+
+document.fonts.ready.then(ajustarWatermark);
+window.addEventListener('resize', ajustarWatermark);
+
+
+/* ========== CANVAS ESTRELAS ========== */
+
+const canvas = document.getElementById('canvas-estrelas');
+const ctx    = canvas.getContext('2d');
+let estrelas = [];
+
+function ajustarCanvas() {
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+function gerarEstrelas(qtd) {
+  estrelas = [];
+  for (var i = 0; i < qtd; i++) {
+    estrelas.push({
+      x:    Math.random() * canvas.width,
+      y:    Math.random() * canvas.height,
+      r:    Math.random() * 1.4 + 0.3,
+      vel:  Math.random() * 0.006 + 0.002,
+      fase: Math.random() * Math.PI * 2,
+    });
+  }
+}
+
+function animarEstrelas(t) {
+  var bg = getComputedStyle(document.documentElement).getPropertyValue('--fundo').trim() || '#0B0D12';
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  estrelas.forEach(function (e) {
+    var brilho = (Math.sin(t * e.vel + e.fase) + 1) / 2;
+    ctx.beginPath();
+    ctx.arc(e.x, e.y, e.r, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255,255,255,' + (brilho * 0.7 + 0.15) + ')';
+    ctx.fill();
+  });
+  requestAnimationFrame(animarEstrelas);
+}
+
+ajustarCanvas();
+gerarEstrelas(200);
+requestAnimationFrame(animarEstrelas);
+window.addEventListener('resize', function () {
+  ajustarCanvas();
+  gerarEstrelas(200);
+});
+
+
+/* ========== TROCA DE TEMA (3 opções de cor) ========== */
+
+const temas = {
+  escuro: {
+    '--fundo':       '#0B0D12',
+    '--fundo-card':  '#141823',
+    '--borda':       '#232A38',
+    '--texto':       '#E6E8EC',
+    '--texto-suave': '#9AA3B2',
+  },
+  roxo: {
+    '--fundo':       '#0D0618',
+    '--fundo-card':  '#160D26',
+    '--borda':       '#2A1A45',
+    '--texto':       '#E8D8FF',
+    '--texto-suave': '#9B7EC8',
+  },
+  azul: {
+    '--fundo':       '#050A18',
+    '--fundo-card':  '#0A1228',
+    '--borda':       '#101E40',
+    '--texto':       '#D0E0FF',
+    '--texto-suave': '#7090C0',
+  },
+};
+
+function aplicarTema(nome) {
+  const raiz = document.documentElement;
+  Object.keys(temas[nome]).forEach(function (prop) {
+    raiz.style.setProperty(prop, temas[nome][prop]);
+  });
+  document.querySelectorAll('.btn-tema').forEach(function (btn) {
+    btn.classList.toggle('ativo', btn.dataset.tema === nome);
+  });
+}
+
+document.querySelectorAll('.btn-tema').forEach(function (btn) {
+  btn.addEventListener('click', function () { aplicarTema(btn.dataset.tema); });
+});
+
+
+/* ========== SLIDESHOW (3 slides do tema) ========== */
+
+const slides     = document.querySelectorAll('.slide');
+const pontos     = document.querySelectorAll('.ponto-slide');
+let   slideAtual = 0;
+let   ticker;
+
+function irParaSlide(indice) {
+  slides[slideAtual].classList.remove('ativo');
+  pontos[slideAtual].classList.remove('ativo');
+  slideAtual = (indice + slides.length) % slides.length;
+  slides[slideAtual].classList.add('ativo');
+  pontos[slideAtual].classList.add('ativo');
+}
+
+function reiniciarTicker() {
+  clearInterval(ticker);
+  ticker = setInterval(function () { irParaSlide(slideAtual + 1); }, 4500);
+}
+
+if (slides.length > 0) {
+  reiniciarTicker();
+
+  document.querySelector('.btn-proximo-slide').addEventListener('click', function () {
+    irParaSlide(slideAtual + 1);
+    reiniciarTicker();
+  });
+
+  document.querySelector('.btn-anterior-slide').addEventListener('click', function () {
+    irParaSlide(slideAtual - 1);
+    reiniciarTicker();
+  });
+
+  pontos.forEach(function (ponto, i) {
+    ponto.addEventListener('click', function () {
+      irParaSlide(i);
+      reiniciarTicker();
+    });
+  });
+}
 
 
 /* ========== FORMULÁRIO COM VALIDAÇÃO ========== */

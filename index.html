@@ -17,6 +17,8 @@
 </head>
 <body>
 
+  <canvas id="canvas-estrelas" class="canvas-estrelas"></canvas>
+
   <!-- ========== CABEÇALHO / MENU ========== -->
   <header class="cabecalho">
     <nav class="barra-nav container">
@@ -33,6 +35,11 @@
         <li><a href="#aplicacao">Aplicação</a></li>
       </ul>
       <button class="btn-hamburguer" id="btn-hamburguer" aria-label="Abrir menu">&#9776;</button>
+      <div class="seletor-tema">
+        <button class="btn-tema ativo" data-tema="escuro" title="Tema Escuro"></button>
+        <button class="btn-tema" data-tema="roxo" title="Tema Nebula"></button>
+        <button class="btn-tema" data-tema="azul" title="Tema Galáxia"></button>
+      </div>
     </nav>
   </header>
 
@@ -48,6 +55,48 @@
       </div>
       <div class="hero-img">
         <img src="img/hero.svg" alt="Ilustração do Sol emitindo uma erupção solar em direção à Terra">
+      </div>
+    </section>
+
+    <!-- ========== SLIDESHOW ========== -->
+    <section class="slideshow-wrapper">
+      <div class="container">
+        <div class="slideshow">
+
+          <div class="slide ativo">
+            <img src="img/ico-problema.svg" alt="Raio representando o perigo das tempestades solares">
+            <div class="slide-texto">
+              <h3>Tempestades Geomagnéticas</h3>
+              <p>Perturbações no campo magnético da Terra causadas por <span data-tooltip="Nuvens de plasma expelidas pelo Sol em alta velocidade. Abreviação: CME.">ejeções de massa coronal</span> do Sol.</p>
+            </div>
+          </div>
+
+          <div class="slide">
+            <img src="img/ico-tecnologia.svg" alt="Satélite monitorando atividade solar em tempo real">
+            <div class="slide-texto">
+              <h3>Monitoramento via NASA</h3>
+              <p>A <span data-tooltip="Database Of Notifications, Knowledge, Information — base de dados de eventos de clima espacial da NASA.">API DONKI</span> da NASA registra erupções solares e envia dados em tempo real ao OrbitAlert.</p>
+            </div>
+          </div>
+
+          <div class="slide">
+            <img src="img/ico-beneficios.svg" alt="Escudo de proteção contra os efeitos das tempestades solares">
+            <div class="slide-texto">
+              <h3>Proteção Antecipada</h3>
+              <p>Com alertas precoces, empresas e usuários protegem equipamentos antes do impacto solar.</p>
+            </div>
+          </div>
+
+          <button class="btn-anterior-slide" aria-label="Slide anterior">&#8249;</button>
+          <button class="btn-proximo-slide"  aria-label="Próximo slide">&#8250;</button>
+
+          <div class="slideshow-pontos">
+            <span class="ponto-slide ativo"></span>
+            <span class="ponto-slide"></span>
+            <span class="ponto-slide"></span>
+          </div>
+
+        </div>
       </div>
     </section>
 
