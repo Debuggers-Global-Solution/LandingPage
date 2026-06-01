@@ -27,3 +27,26 @@ function marcarSecaoAtiva() {
 
 window.addEventListener("scroll", marcarSecaoAtiva);
 window.addEventListener("load", marcarSecaoAtiva);
+
+
+/* ===================================================
+   Scroll reveal: faz as seções aparecerem ao rolar.
+=================================================== */
+
+const blocos = document.querySelectorAll("main section");
+
+blocos.forEach(function (bloco) {
+  bloco.classList.add("revelar");
+});
+
+const observador = new IntersectionObserver(function (entradas) {
+  entradas.forEach(function (entrada) {
+    if (entrada.isIntersecting) {
+      entrada.target.classList.add("visivel");
+    }
+  });
+}, { threshold: 0.15 });
+
+blocos.forEach(function (bloco) {
+  observador.observe(bloco);
+});
