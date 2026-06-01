@@ -273,3 +273,61 @@ html {
   color: var(--texto-suave);
   font-size: 0.92rem;
 }
+
+/* =========================================
+   RODAPÉ
+========================================= */
+.rodape {
+  border-top: 1px solid var(--borda);
+  background-color: var(--fundo-card);
+  padding: 40px 0;
+  text-align: center;
+  position: relative;
+}
+.rodape::before {
+  content: 'OrbitAlert';
+  position: absolute;
+  bottom: var(--rodape-watermark-bottom, 0px);
+  left: 47.5%;
+  transform: translateX(-50%);
+  font-family: 'Manrope', sans-serif;
+  font-style: italic;
+  font-size: var(--rodape-watermark-size, 12vw);
+  font-weight: 700;
+  color: rgba(245, 132, 12, 0.08);
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+  line-height: 1;
+}
+.rodape .container {
+  position: relative;
+  z-index: 1;
+}
+.rodape h3 {
+  color: var(--laranja);
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+}
+.rodape-integrantes {
+  display: flex;                 /* Flexbox */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 28px;
+  margin-bottom: 20px;
+}
+.rodape-integrantes li {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+.rodape-integrantes li span {
+  color: var(--azul);
+  font-weight: 600;
+}
+.rodape .creditos {
+  color: var(--texto-suave);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--borda);
+  padding-top: 18px;
+}

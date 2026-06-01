@@ -1,0 +1,12 @@
+EQUIPE DEBUGGERS - Turma 1ESPG-26
+Global Solution 2026 - Industria Espacial
+Projeto: OrbitAlert
+
+INTEGRANTES:
+Enrico Vieira de Almeida Vidal - RM569217
+Vinicius Fuentes Cavalcanti - RM570818
+Thiago Fernandes Kulesza - RM568922
+Guilherme De Rosa Peres - RM569193
+
+REPOSITORIO GITHUB:
+https://github.com/Debuggers-Global-Solution/LandingPage
