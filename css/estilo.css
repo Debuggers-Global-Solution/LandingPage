@@ -458,3 +458,107 @@ html {
   font-size: 0.9rem;
   margin-top: 12px;
 }
+
+/* =========================================
+   QUIZ
+========================================= */
+.quiz-progresso {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  margin-bottom: 10px;
+}
+.quiz-pergunta {
+  font-size: 1.05rem;
+  font-family: var(--fonte-titulo);
+  color: var(--texto);
+  margin-bottom: 18px;
+}
+.quiz-opcoes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+.btn-opcao {
+  width: 100%;
+  text-align: left;
+  background: var(--fundo-card);
+  border: 1px solid var(--borda);
+  color: var(--texto);
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--fonte-texto);
+  font-size: 0.95rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-opcao:hover { border-color: var(--azul); }
+.btn-opcao.selecionado {
+  border-color: var(--laranja);
+  background: rgba(255, 138, 61, 0.1);
+}
+.btn-proxima-quiz {
+  background: var(--azul);
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--fonte-titulo);
+  font-size: 0.95rem;
+  transition: opacity 0.2s;
+}
+.btn-proxima-quiz:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.quiz-resultado {
+  text-align: center;
+  padding: 40px 0;
+}
+.quiz-resultado h3 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: var(--laranja);
+}
+.quiz-pontos {
+  font-size: 3rem;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  color: var(--texto);
+  margin-bottom: 6px;
+}
+.quiz-porcentagem {
+  font-size: 1.1rem;
+  color: var(--azul);
+  margin-bottom: 10px;
+}
+.quiz-mensagem {
+  color: var(--texto-suave);
+  margin-bottom: 24px;
+}
+.quiz-barra-wrapper {
+  width: 100%;
+  height: 5px;
+  background: var(--borda);
+  border-radius: 3px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.quiz-barra {
+  height: 5px;
+  background: var(--laranja);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+.btn-opcao.correta {
+  border-color: #36D17A;
+  background: rgba(54, 209, 122, 0.12);
+  color: #36D17A;
+}
+.btn-opcao.errada {
+  border-color: #FF4444;
+  background: rgba(255, 68, 68, 0.12);
+  color: #FF4444;
+}
