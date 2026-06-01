@@ -1,0 +1,47 @@
+/* ===================================================
+   ESTILO PRINCIPAL - OrbitAlert
+   Variáveis CSS, tipografia, layout em Flexbox
+=================================================== */
+
+/* ----- VARIÁVEIS CSS (cores e fontes do projeto) ----- */
+:root {
+  --fundo:        #0B0D12;
+  --fundo-card:   #141823;
+  --borda:        #232A38;
+  --laranja:      #FF8A3D;  /* cor do Sol / alerta */
+  --laranja-claro:#FFB37A;
+  --azul:         #4C7DFF;  /* cor do espaço / órbita */
+  --texto:        #E6E8EC;
+  --texto-suave:  #9AA3B2;
+
+  --fonte-titulo: 'Sora', sans-serif;
+  --fonte-texto:  'Manrope', sans-serif;
+
+  --largura-max:  1100px;
+}
+
+/* ----- ESTILO GERAL DO CORPO ----- */
+body {
+  font-family: var(--fonte-texto);
+  color: var(--texto);
+}
+
+/* container central reutilizável */
+.container {
+  width: 90%;
+  max-width: var(--largura-max);
+  margin: 0 auto;
+}
+
+/* ----- TÍTULOS ----- */
+h1, h2, h3 {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* fundo da página */
+html {
+  background-color: #0B0D12;
+  scroll-behavior: smooth;
+}

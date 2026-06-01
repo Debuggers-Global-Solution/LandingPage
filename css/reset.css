@@ -1,0 +1,34 @@
+/* ===================================================
+   RESET CSS
+   Zera margens, paddings e padroniza o box-sizing
+   para o site ficar igual em todos os navegadores.
+=================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* rolagem suave ao clicar no menu */
+}
+
+body {
+  line-height: 1.6;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
