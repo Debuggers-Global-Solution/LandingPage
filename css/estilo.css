@@ -264,6 +264,10 @@ html {
   border-color: var(--laranja);
   transform: translateY(-4px);
 }
+.card:focus-within {
+  border-color: var(--azul);
+  transform: translateY(-4px);
+}
 .card h3 {
   font-size: 1.1rem;
   margin-bottom: 8px;
