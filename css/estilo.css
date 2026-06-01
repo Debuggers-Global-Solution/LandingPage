@@ -390,6 +390,11 @@ html {
   cursor: pointer;
   line-height: 1;
   padding: 4px;
+  transition: color 0.2s, transform 0.2s;
+}
+.btn-hamburguer:hover {
+  color: var(--laranja);
+  transform: scale(1.1);
 }
 
 /* =========================================
