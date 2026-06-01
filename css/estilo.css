@@ -45,3 +45,61 @@ html {
   background-color: #0B0D12;
   scroll-behavior: smooth;
 }
+
+/* =========================================
+   CABEÇALHO / MENU DE NAVEGAÇÃO
+========================================= */
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(11, 13, 18, 0.9);
+  border-bottom: 1px solid var(--borda);
+  backdrop-filter: blur(6px);
+}
+
+.barra-nav {
+  display: flex;                 /* Flexbox */
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+/* logo / nome da solução */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--fonte-titulo);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--texto);
+}
+.logo span {
+  color: var(--laranja);
+}
+.logo img {
+  width: 30px;
+}
+
+/* lista de links do menu */
+.menu {
+  display: flex;                 /* Flexbox */
+  gap: 26px;
+}
+.menu a {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.menu a:hover {
+  color: var(--texto);
+}
+/* link da seção ATIVA (mostra onde o usuário está) */
+.menu a.ativo {
+  color: var(--laranja);
+  border-bottom-color: var(--laranja);
+}
