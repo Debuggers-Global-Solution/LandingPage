@@ -712,3 +712,19 @@ html {
   background: rgba(255, 68, 68, 0.12);
   color: #FF4444;
 }
+/* =========================================
+   ACESSIBILIDADE - foco visível
+========================================= */
+.botao:focus-visible,
+.btn-opcao:focus-visible,
+.btn-proxima-quiz:focus-visible,
+.btn-tema:focus-visible,
+.btn-topo:focus-visible,
+.btn-hamburguer:focus-visible {
+  outline: 2px solid var(--laranja);
+  outline-offset: 3px;
+}
+.menu a:focus-visible {
+  color: var(--laranja);
+  outline: none;
+}
