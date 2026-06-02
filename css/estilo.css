@@ -80,6 +80,10 @@ html {
 }
 .logo img {
   width: 30px;
+  transition: transform 0.3s ease;
+}
+.logo:hover img {
+  transform: rotate(20deg) scale(1.1);
 }
 
 /* lista de links do menu */
