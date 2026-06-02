@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OrbitAlert - Alerta de Clima Espacial</title>
+  <meta name="description" content="OrbitAlert — sistema de alerta de tempestades solares em tempo real usando a API DONKI da NASA. Projeto Global Solution FIAP 2026.">
+  <meta name="keywords" content="clima espacial, tempestade solar, NASA, DONKI, alerta, satélites, FIAP">
+  <meta name="author" content="Equipe Debuggers — FIAP 1ESPG-26">
   <link rel="icon" type="image/svg+xml" href="img/logo.svg">
 
   <!-- Google Fonts -->
@@ -277,7 +280,8 @@
         </div>
         <div class="campo-grupo">
           <label for="mensagem">Mensagem</label>
-          <textarea id="mensagem" name="mensagem" required placeholder="Sua mensagem..." rows="4"></textarea>
+          <textarea id="mensagem" name="mensagem" required placeholder="Sua mensagem..." rows="4" maxlength="500"></textarea>
+          <small id="contador-chars" style="color: var(--texto-suave); font-size: 0.78rem;">0 / 500 caracteres</small>
           <span class="msg-erro">Por favor, escreva sua mensagem.</span>
         </div>
         <button type="submit" class="botao">Enviar mensagem</button>
@@ -307,8 +311,10 @@
         <li>Guilherme <span>RM569193</span></li>
       </ul>
       <p class="creditos">OrbitAlert &copy; 2026 · Global Solution FIAP · Indústria Espacial</p>
+      <a class="creditos" href="https://github.com/Debuggers-Global-Solution/LandingPage" target="_blank" rel="noopener noreferrer" style="display:block; margin-top:8px; color: var(--azul); font-size:0.82rem;">Ver repositório no GitHub ↗</a>
     </div>
   </footer>
+
 
   <button id="btn-topo" class="btn-topo" aria-label="Voltar ao topo">&#8679;</button>
 

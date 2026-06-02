@@ -264,6 +264,10 @@ html {
   border-color: var(--laranja);
   transform: translateY(-4px);
 }
+.card:focus-within {
+  border-color: var(--azul);
+  transform: translateY(-4px);
+}
 .card h3 {
   font-size: 1.1rem;
   margin-bottom: 8px;
@@ -386,6 +390,11 @@ html {
   cursor: pointer;
   line-height: 1;
   padding: 4px;
+  transition: color 0.2s, transform 0.2s;
+}
+.btn-hamburguer:hover {
+  color: var(--laranja);
+  transform: scale(1.1);
 }
 
 /* =========================================
@@ -707,4 +716,20 @@ html {
   border-color: #FF4444;
   background: rgba(255, 68, 68, 0.12);
   color: #FF4444;
+}
+/* =========================================
+   ACESSIBILIDADE - foco visível
+========================================= */
+.botao:focus-visible,
+.btn-opcao:focus-visible,
+.btn-proxima-quiz:focus-visible,
+.btn-tema:focus-visible,
+.btn-topo:focus-visible,
+.btn-hamburguer:focus-visible {
+  outline: 2px solid var(--laranja);
+  outline-offset: 3px;
+}
+.menu a:focus-visible {
+  color: var(--laranja);
+  outline: none;
 }
